@@ -18,7 +18,7 @@ function clean() {
 
 function solver() {
   let UserData = document.getElementById("result").innerHTML;
-  let arrayData = UserData.match(/\d+|\+|\-|\*|\//g);
+  let arrayData = UserData.match(/\d+(\.\d+)?|\+|\-|\*|\//g);
 
   // Inicializamos el resultado como el primer número
   let firstNumber = parseFloat(arrayData[0]);
@@ -41,7 +41,7 @@ function solver() {
         firstNumber *= secondNumber;
         break;
       case '/':
-        
+
         if (secondNumber !== 0) {
           firstNumber /= secondNumber;
         } else {
@@ -53,9 +53,12 @@ function solver() {
     }
   }
 
+  let decimal = document.getElementById('decimal');
+
+  firstNumber = Number.isInteger(firstNumber) ? firstNumber : firstNumber.toFixed(2);
+
   // Mostramos el resultado
   document.getElementById("result").innerHTML = firstNumber;
-
 }
 
 
