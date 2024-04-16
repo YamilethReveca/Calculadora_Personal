@@ -23,8 +23,6 @@ function solver() {
   // Inicializamos el resultado como el primer número
   let firstNumber = parseFloat(arrayData[0]);
 
-
-
   for (let i = 1; i < arrayData.length; i += 2) {
     let operator = arrayData[i];
     let secondNumber = parseFloat(arrayData[i + 1]);
